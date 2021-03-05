@@ -17,10 +17,11 @@ public class Parser {
     private static final String WHITESPACE_PATTERN = "[ \t\n\r]*";
     private static final String WHITESPACE = " \t\n\r";
 
-    private static final Set<Character> idChars = new HashSet<>(IntStream.concat(IntStream.range('A', 'Z' + 1), IntStream.range('a', 'z' + 1)).mapToObj((int character) -> (char) character).collect(Collectors.toList())); static {
-        idChars.add('_');
-        idChars.add('$');
-    }
+    private static final Set<Character> idChars = new HashSet<>(IntStream
+            .concat(IntStream.concat(IntStream.of('_', '$'), IntStream.range('A', 'Z' + 1)), IntStream.range('a', 'z' + 1))
+            .mapToObj((int character) -> (char) character)
+            .collect(Collectors.toList())
+    );
 
     private static final Set<String> compound = new HashSet<>(Set.of(
         "...",
