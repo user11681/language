@@ -1,0 +1,22 @@
+plugins {
+    id("java-library")
+    id("maven-publish")
+}
+
+project.with {
+    group("user11681")
+    version("0.0.0")
+}
+
+repositories {
+    jcenter()
+
+    maven {url = "https://repository.ow2.org/nexus/content/repository/releases"}
+}
+
+dependencies {
+    api("org.ow2.asm:asm:latest.release")
+    api("org.ow2.asm:asm-tree:latest.release")
+
+    testImplementation("org.junit.jupiter:junit-jupiter:latest.release")
+}
